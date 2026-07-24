@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+        #  this one is the step on which we gonna copy the code of our repo
+        #  it gonna use prebuild way to copy the repo code from the branch which trigger this event / develop
+      - name: Checkout source
+        uses: actions/checkout@v4
+        #  install nodejs with the version 22 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+        #  install dependencies of the project untill now we have 1. nodejs 2. the code 3. the package for the project and the command to buld it
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build application
+        run: npm run build
