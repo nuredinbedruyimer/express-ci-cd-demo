@@ -52,8 +52,9 @@ app.get("/health", async (_req, res) => {
 app.get(
   "/users",
   async (_request: Request, response: Response): Promise<Response> => {
+    const filteredUsers = users.filter((user) => user.age >= 18);
     return response.json({
-      users,
+      users: filteredUsers,
       success: true,
       messsage: "users fetched successfully !!!",
     });
