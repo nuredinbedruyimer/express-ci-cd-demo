@@ -40,7 +40,7 @@ jobs:
       - name: Log in Github Container Registry
         uses: docker/login-action@v3
         with:
-            registry: $REGISTRY
+            registry: ${{ env.REGISTRY}}
             username: ${{ github.actor}}
             password: ${{ secrets.GITHUB_TOKEN}}
       - name: Build Docker image
@@ -49,4 +49,4 @@ jobs:
             -t $REGISTRY/${{ github.repository_owner }}/$IMAGE_NAME:latest .
       - name: Push Docker Image
         run: |
-          docker push $REGISTRY/${{github.repository_owner}}/$IMAGE_NAMR:latest
+          docker push $REGISTRY/${{github.repository_owner}}/$IMAGE_NAME:latest
