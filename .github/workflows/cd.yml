@@ -18,7 +18,7 @@ env:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
 
     steps:
@@ -45,3 +45,7 @@ jobs:
         run: |
           docker push \
           $REGISTRY/${{ github.repository_owner }}/$IMAGE_NAME:${{github.sha}}
+      - name: Deploy Staging Server
+        run: |
+         chmod +x scripts/deploy.sh
+         ./scripts/deploy.sh ${{ github.sha }}
