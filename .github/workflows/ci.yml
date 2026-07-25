@@ -26,3 +26,5 @@ jobs:
         run: npm run lint
       - name: Build application
         run: npm run build
+      - name: Build Docker image
+        run: docker build -t github-ci-cd-action .
