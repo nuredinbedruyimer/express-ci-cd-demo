@@ -1,0 +1,22 @@
+name: Test Self Hosted Runner
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Check machine
+        run:
+
+          hostname
+
+      - name: Check Docker
+        run:
+    #  just test this one 
+
+          docker --version
