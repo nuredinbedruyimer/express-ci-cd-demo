@@ -38,10 +38,10 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-          -t $REGISTRY/${{ github.repository_owner }}/$IMAGE_NAME:latest .
+          -t $REGISTRY/${{ github.repository_owner }}/$IMAGE_NAME:${{github.sha}} .
 
 
       - name: Push Docker Image
         run: |
           docker push \
-          $REGISTRY/${{ github.repository_owner }}/$IMAGE_NAME:latest
+          $REGISTRY/${{ github.repository_owner }}/$IMAGE_NAME:${{github.sha}}
