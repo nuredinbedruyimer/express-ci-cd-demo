@@ -26,3 +26,6 @@ jobs:
         run: npm run lint
       - name: Build application
         run: npm run build
+        #  this one is building docker imaga phase to check docker helath check
+      - name: Build Docker image
+        run: docker build -t github-ci-cd-action .
