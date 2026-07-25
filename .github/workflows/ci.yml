@@ -22,6 +22,7 @@ jobs:
         #  install dependencies of the project untill now we have 1. nodejs 2. the code 3. the package for the project and the command to buld it
       - name: Install dependencies
         run: npm install
-
+      - name: Run ESLint
+        run: npm run lint
       - name: Build application
         run: npm run build
